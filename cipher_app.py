@@ -1,15 +1,13 @@
 from crypto import atbash
 from crypto import rail
+from crypto import polybius
 
 atb_cipher = atbash.Atbash()
 rail_cipher = rail.Rail()
+polybius_cipher = polybius.Polybius()
 
-phrase = "Ride on the magic school bus"
-secure = rail_cipher.encrypt(text=phrase)
-insecure = rail_cipher.decrypt(text=phrase)
+secure = rail_cipher.encrypt(text='If you do claim a ')
 
+insecure = rail_cipher.decrypt(text=secure)
 
-print(secure)
-
-print(insecure)
 
