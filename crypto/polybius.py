@@ -1,5 +1,11 @@
 from crypto import ciphers
 
+'''In cryptography, the Polybius square, also known as the Polybius 
+checkerboard, is a device invented by the Ancient Greek historian and 
+scholar Polybius,[1] for fractionating plaintext characters so that 
+they can be represented by a smaller set of symbols.
+'''
+
 
 class Polybius(ciphers.Cipher):
 
@@ -21,6 +27,7 @@ class Polybius(ciphers.Cipher):
 
         self.reverse_mapping = {v: k for k, v in self.mapping.items()}
 
+    '''Takes a string and returns an encoded message string'''
     def encrypt(self, text):
         result = ''
         for letter in text.upper():
@@ -31,6 +38,7 @@ class Polybius(ciphers.Cipher):
                 result += letter
         return result
 
+    '''Takes an encoded message string and returns a decoded string'''
     def decrypt(self, text):
         raw = text
         result = ''

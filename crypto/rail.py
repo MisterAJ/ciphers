@@ -1,5 +1,10 @@
 from crypto import ciphers
 
+'''The rail fence cipher (also called a zigzag cipher) is a form of 
+transposition cipher. It derives its name from the way in which it is encoded.
+'''
+
+
 class Rail(ciphers.Cipher):
     def __init__(self):
         self.one = []
@@ -7,6 +12,7 @@ class Rail(ciphers.Cipher):
         self.three = []
         pass
 
+    '''Takes a string and returns an encoded message string'''
     def encrypt(self, text):
         text = text.replace(' ', '')
         if len(text) != 13 or 25 or 49 or 73 or 97:
@@ -30,12 +36,12 @@ class Rail(ciphers.Cipher):
                 while len(text) < 97:
                     text += 'x'
 
-
         one = text[::4]
         two = text[1::2]
         three = text[2::4]
         return one + two + three
 
+    '''Takes an encoded message string and returns a decoded string'''
     def decrypt(self, text):
         print(len(text))
         chunk = int(len(text) / 4)
@@ -54,6 +60,8 @@ class Rail(ciphers.Cipher):
         third_line = []
         for letter in three:
             third_line.append(letter + '---')
-        return ''.join(first_line) + '\n-' + ''.join(second_line) + '\n--' + ''.join(third_line)
+        return (''.join(first_line) + '\n-' +
+                ''.join(second_line) + '\n--' +
+                ''.join(third_line))
 
 
